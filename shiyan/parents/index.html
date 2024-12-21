@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>新年祝语</title>
+		<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="index.css"/>
+		<link rel="stylesheet" type="text/css" href="mobile.css" media="screen and (max-width:720px)" />
+	</head>
+	<body>
+		<audio id="yy" controls="false" autoplay="true" loop="loop" style="display: none;">
+			<source src="Music/愿你余生漫长.mp3" type="audio/mpeg" />
+		</audio>
+		<audio id="ty" controls="false" autoplay="true" loop="loop" style="display: none;">
+			<source src="Music/太阳.mp3" type="audio/mpeg" />
+		</audio>
+		<!-- 加载 -->
+		<div class="bj">
+			<div class="bj-imgs">
+				<img onclick="screen()" class="Love" src="img/爱心.png" >
+			</div>
+		</div>
+		<!-- 加载结束 -->
+		
+		
+		<!-- 内容 -->
+		<div class="centent">
+			<div class="centent-warp">
+				<div class="dc">
+					<div class="centent-top">
+						<div class="top-warp">
+							<video style="object-fit: cover;" id="video" class="video" autoplay="" loop="" muted="muted" style="background-image:url(>)">
+									<source src="img/ship2.mp4" type="video/mp4">
+							</video>
+						</div>
+					</div>
+					<div class="centent-center" id="text"></div>
+					<div onclick="getClass()" class="centent-bottom">点我</div>
+				</div>
+			</div>
+		</div>
+		<!-- 内容结束 -->
+		
+		
+		<!-- 烟花 -->
+		<div id="container">
+		    <div id="fireworks"><img src="img/fireworks.png" alt=""></div>
+		    <div id="firecracker"><img src="img/firecracker.png" alt="" width="8px"></div>
+			<p class="zi">祝咱一家人元旦快乐！</p>
+			<p class="zi2">٩(๑^o^๑)۶</p>
+		</div>
+		<!-- 烟花结束 -->
+	</body>
+	<script type="text/javascript">
+		let = document.getElementById("yy");
+		let = document.getElementById("ty");
+		ty.pause();
+		video.pause();
+		$(function() {
+			$(".Love").toggleClass("active");
+		})
+		
+		function screen () {
+			$('.bj').delay(100).fadeOut('slow');
+			yy.pause();
+			ty.play();
+			video.play();
+			$(".centent .centent-warp .dc").css({
+				opacity:"1",
+				transform:"scale(1)",
+			})
+			let divTyping = document.getElementById('text');
+			let i = 0,
+				timer = 0,
+				str = '嘿，爸爸妈妈，还有我最亲爱亲爱的弟弟，你们知道吗？就在元旦那晚，当十二点的钟声一响，我做了件特别的事儿，为了咱们一家四口，我悄悄地在世界各地安排了烟花秀。真的（bushi），别问我花了多少心思和钱，那些都不算数，最重要的是咱们这一家人的心紧紧相连，那份感情，是多少钱都买不来的。咱们之间的爱，比任何烟火都要绚烂，比任何礼物都要珍贵。所以，新的一年，就让我们一起带着这份温暖和幸福，继续前行吧！'
+			
+			function typing() {
+				if (i <= str.length) {
+					divTyping.innerHTML = str.slice(0, i++) + '_'
+					timer = setTimeout(typing, 180)
+				} else {
+					divTyping.innerHTML = str //结束打字,移除 _ 光标
+					clearTimeout(timer)
+				}
+			}
+			typing()
+		}
+		
+		function getClass () {
+			$(".centent .centent-top").css({
+				opacity:"0",
+				top:"-500px",
+			})
+			$(".centent .centent-center").css({
+				opacity:"0",
+			})
+			$(".centent .centent-bottom").css({
+				opacity:"0",
+				top:"500px",
+			})
+			$('.centent').delay(100).fadeOut('slow');
+			$("#firecracker").css({
+				transform: "scale(0)",
+				bottom: "60%",
+			})
+			setTimeout(function() {
+				$("#fireworks").css({
+					transform: "scale(1)",
+					opacity:"1",
+				})
+				setTimeout(function() {
+					$("#fireworks").css({
+						opacity:"0",
+					})
+				},1500)
+				$("#container .zi").css({
+					left:"200%",
+					zIndex: "3",
+				})
+				setTimeout(function() {
+					$("#container .zi2").css({
+						left:"200%",
+						zIndex: "3",
+					})
+				},2000)
+			},1900)
+		}
+	</script>
+</html>

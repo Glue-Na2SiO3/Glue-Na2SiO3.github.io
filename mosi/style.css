@@ -1,0 +1,1416 @@
+body {
+    font-family: 'Comic Sans MS', sans-serif;
+    /* 动态背景颜色渐变，优化过渡效果 */
+    background: linear-gradient(135deg, #e6f7ff, #c0eaff);
+    animation: bodyBackgroundAnimation 30s ease-in-out infinite alternate;
+    color: #2c3e50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+@keyframes bodyBackgroundAnimation {
+    0% {
+        background: linear-gradient(135deg, #e6f7ff, #c0eaff);
+    }
+
+    10% {
+        background: linear-gradient(135deg, #e5f6fe, #bfe8fe);
+    }
+
+    20% {
+        background: linear-gradient(135deg, #e4f5fd, #bee7fd);
+    }
+
+    30% {
+        background: linear-gradient(135deg, #e3f4fc, #bde6fc);
+    }
+
+    40% {
+        background: linear-gradient(135deg, #e2f3fb, #bce5fb);
+    }
+
+    50% {
+        background: linear-gradient(135deg, #e1f2fa, #bbe4fa);
+    }
+
+    60% {
+        background: linear-gradient(135deg, #e2f3fb, #bce5fb);
+    }
+
+    70% {
+        background: linear-gradient(135deg, #e3f4fc, #bde6fc);
+    }
+
+    80% {
+        background: linear-gradient(135deg, #e4f5fd, #bee7fd);
+    }
+
+    90% {
+        background: linear-gradient(135deg, #e5f6fe, #bfe8fe);
+    }
+
+    100% {
+        background: linear-gradient(135deg, #e6f7ff, #c0eaff);
+    }
+}
+
+.container {
+    max-width: 80%;
+    margin: 100px auto 0;
+    background-color: #f7f9fb;
+    /* 浅灰白背景 */
+    color: #34495e;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+h1 {
+    color: #2980b9;
+    /* 深蓝色标题 */
+    margin-bottom: 20px;
+    font-size: 36px;
+    animation: colorChange 3s infinite alternate;
+}
+
+@keyframes colorChange {
+    0% {
+        color: #2980b9;
+    }
+
+    100% {
+        color: #3498db;
+    }
+}
+
+#game-area {
+    margin-top: 20px;
+}
+
+#morse-code-display {
+    font-size: 28px;
+    color: #3498db;
+    /* 亮蓝色摩斯密码 */
+    margin-bottom: 15px;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+input[type="text"] {
+    padding: 12px;
+    border: 3px solid #2980b9;
+    /* 亮蓝色边框 */
+    border-radius: 6px;
+    margin-bottom: 15px;
+    width: 200px;
+    font-size: 16px;
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.3);
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: #2ecc71;
+    box-shadow: 0 0 15px rgba(46, 204, 113, 0.4);
+    transform: scale(1.02);
+}
+
+button {
+    padding: 12px 24px;
+    background: linear-gradient(45deg, #27ae60, #2980b9);
+    /* 绿色按钮 */
+    color: #fff;
+    border: 3px solid white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg,
+            transparent,
+            rgba(255, 255, 255, 0.4),
+            transparent);
+    transition: 0.5s;
+}
+
+button:hover::before {
+    left: 100%;
+}
+
+button:hover {
+    background-color: #27ae60;
+    /* 深绿色按钮 */
+    transform: scale(1.1);
+}
+
+#result {
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 18px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#start-screen {
+    text-align: center;
+    background-color: #f0f9ff;
+    /* 浅蓝色背景 */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in-out;
+}
+
+#start-screen h1 {
+    font-size: 40px;
+    color: #2c3e50;
+    /* 深灰色标题 */
+    margin-bottom: 20px;
+}
+
+#start-screen button {
+    margin: 10px;
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: #3498db;
+    /* 蓝色按钮 */
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#start-screen button:hover {
+    background-color: #2980b9;
+    /* 深蓝色按钮 */
+    transform: scale(1.1);
+}
+
+/* 解密模式样式 */
+#decrypt-game {
+    max-width: 90%;
+    background-color: #fef9e7;
+    /* 浅黄色背景 */
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in-out;
+    font-size: 18px;
+}
+
+#decrypt-game h1 {
+    font-size: 36px;
+    color: #d35400;
+    /* 橙色标题 */
+    margin-bottom: 20px;
+}
+
+#decrypt-game #game-area {
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* PK模式样式 */
+#pk-game {
+    max-width: 90%;
+    background-color: #f9f9f9;
+    /* 浅灰色背景 */
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in-out;
+    font-size: 18px;
+}
+
+#pk-game h1 {
+    font-size: 36px;
+    color: #8e44ad;
+    /* 紫色标题 */
+    margin-bottom: 20px;
+}
+
+#pk-area {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    position: relative;
+    padding: 0 20px;
+}
+
+#pk-area::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, #3498db, #9b59b6);
+    transform: translateX(-50%);
+}
+
+.player {
+    flex: 1;
+    padding: 30px;
+    font-size: 16px;
+    background-color: #ffffff;
+    /* 白色容器 */
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.player:hover {
+    transform: scale(1.05);
+}
+
+.player h2 {
+    font-size: 24px;
+    color: #2c3e50;
+    /* 深灰色标题 */
+    margin-bottom: 15px;
+}
+
+#player1-options button,
+#player2-options button {
+    display: block;
+    margin: 10px auto;
+    padding: 12px 20px;
+    font-size: 16px;
+    background-color: #1abc9c;
+    /* 绿色按钮 */
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#player1-options button:hover,
+#player2-options button:hover {
+    background-color: #16a085;
+    /* 深绿色按钮 */
+    transform: scale(1.1);
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 新增动画效果 */
+.shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    20%,
+    60% {
+        transform: translateX(-5px);
+    }
+
+    40%,
+    80% {
+        transform: translateX(5px);
+    }
+}
+
+.story-intro {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    z-index: 1000;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.loading-animation {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.story-completion {
+    text-align: center;
+    padding: 20px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.story-completion button {
+    margin-top: 20px;
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.story-completion button:hover {
+    background-color: #2980b9;
+    transform: scale(1.1);
+}
+
+/* 新增过渡消息样式 */
+.transition-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    font-size: 20px;
+    color: #2c3e50;
+    z-index: 1000;
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* 新增奖励动画样式 */
+.reward-animation {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px;
+    color: #f39c12;
+    animation: bounce 2s infinite;
+}
+
+/* 页面顶部样式 */
+.page-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* 动态背景颜色渐变，优化过渡效果 */
+    background: linear-gradient(90deg, #2c3e50, #3498db);
+    animation: headerBackgroundAnimation 30s ease-in-out infinite alternate;
+    color: #ecf0f1;
+    /* 浅色文字 */
+    padding: 20px;
+    border-bottom: 2px solid #3498db;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: all 0.5s ease-in-out;
+}
+
+@keyframes headerBackgroundAnimation {
+    0% {
+        background: linear-gradient(90deg, #2c3e50, #3498db);
+    }
+
+    10% {
+        background: linear-gradient(90deg, #2d3e51, #3397da);
+    }
+
+    20% {
+        background: linear-gradient(90deg, #2e3f52, #3296d9);
+    }
+
+    30% {
+        background: linear-gradient(90deg, #2f4053, #3195d8);
+    }
+
+    40% {
+        background: linear-gradient(90deg, #304154, #3094d7);
+    }
+
+    50% {
+        background: linear-gradient(90deg, #314255, #2f93d6);
+    }
+
+    60% {
+        background: linear-gradient(90deg, #304154, #3094d7);
+    }
+
+    70% {
+        background: linear-gradient(90deg, #2f4053, #3195d8);
+    }
+
+    80% {
+        background: linear-gradient(90deg, #2e3f52, #3296d9);
+    }
+
+    90% {
+        background: linear-gradient(90deg, #2d3e51, #3397da);
+    }
+
+    100% {
+        background: linear-gradient(90deg, #2c3e50, #3498db);
+    }
+}
+
+.page-header.shrink {
+    padding: 5px 20px;
+    background-color: #34db6c;
+    color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.page-header .header-content {
+    text-align: center;
+    transition: all 0.5s ease-in-out;
+}
+
+.page-header.shrink .header-content {
+    transform: scale(0.8);
+    text-align: left;
+    margin-left: 20px;
+}
+
+.page-header h1 {
+    font-size: 32px;
+    /* 固定为鲜明的深蓝色，增强对比 */
+    color: #ecf0f1;
+    margin: 0;
+    /* 移除原来的 colorChange 动画 */
+}
+
+.page-header.shrink h1 {
+    font-size: 20px;
+    color: #ffffff;
+}
+
+.page-header p {
+    font-size: 18px;
+    color: #ecf0f1;
+    margin: 10px 0 0;
+}
+
+.page-header.shrink p {
+    font-size: 14px;
+    color: #fff;
+}
+
+/* 修改页眉说明文字颜色 */
+.page-header .header-content p {
+    color: #bdc3c7;
+    /* 深一点的颜色，确保在深色背景中看清 */
+}
+
+/* 确保 academy-logo 始终位于 page-header 内部 */
+.academy-logo {
+    display: flex;
+    justify-content: flex-end;
+    /* 右对齐 */
+    width: 100%;
+    /* 确保父容器宽度占满 */
+    position: absolute;
+    top: 40%;
+    /* 上下居中 */
+    right: 5%;
+    /* 靠右侧 10% */
+    transform: translateY(-50%);
+    /* 确保垂直居中 */
+
+}
+
+.page-header.shrink .academy-logo {
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    top: 30%;
+    /* 上下居中 */
+    right: 5%;
+    /* 靠右侧 10% */
+    transform: translateY(-50%);
+    /* 确保垂直居中 */
+    width: 100%;
+    /* 仍占据 header 的 80% */
+    height: auto;
+}
+
+/* 固定返回主页链接样式 */
+.return-home {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 3000;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 2px solid #3498db;
+    border-radius: 8px;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+.return-home a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.return-home a:hover {
+    text-decoration: underline;
+}
+
+/* 页面底部样式 */
+.page-footer {
+    text-align: center;
+    /* 动态背景颜色渐变，优化过渡效果 */
+    background: linear-gradient(90deg, #2c3e50, #34495e);
+    animation: footerBackgroundAnimation 30s ease-in-out infinite alternate;
+    color: #ecf0f1;
+    /* 浅色文字 */
+    padding: 20px 10px;
+    border-top: 2px solid #34495e;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 16px;
+}
+
+@keyframes footerBackgroundAnimation {
+    0% {
+        background: linear-gradient(90deg, #2c3e50, #34495e);
+    }
+
+    10% {
+        background: linear-gradient(90deg, #2d3e51, #33485d);
+    }
+
+    20% {
+        background: linear-gradient(90deg, #2e3f52, #32475c);
+    }
+
+    30% {
+        background: linear-gradient(90deg, #2f4053, #31465b);
+    }
+
+    40% {
+        background: linear-gradient(90deg, #304154, #30455a);
+    }
+
+    50% {
+        background: linear-gradient(90deg, #314255, #2f4459);
+    }
+
+    60% {
+        background: linear-gradient(90deg, #304154, #30455a);
+    }
+
+    70% {
+        background: linear-gradient(90deg, #2f4053, #31465b);
+    }
+
+    80% {
+        background: linear-gradient(90deg, #2e3f52, #32475c);
+    }
+
+    90% {
+        background: linear-gradient(90deg, #2d3e51, #33485d);
+    }
+
+    100% {
+        background: linear-gradient(90deg, #2c3e50, #34495e);
+    }
+}
+
+.page-footer p {
+    font-size: 16px;
+    color: #ecf0f1;
+    margin: 0;
+}
+
+.page-footer a {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.page-footer a:hover {
+    text-decoration: underline;
+}
+
+/* 突出学校和学院名称 */
+.page-footer p::before {
+    content: "🏫 ";
+    color: #2980b9;
+}
+
+.academy-logo {
+    margin-top: 10px;
+}
+
+.academy-logo img {
+    width: 150px;
+    /* 放大Logo */
+    height: auto;
+    display: inline-block;
+}
+
+/* PK 模式按钮样式 */
+.option-button {
+    padding: 10px 20px;
+    background-color: #1abc9c;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.option-button:hover {
+    background-color: #16a085;
+    transform: scale(1.1);
+}
+
+/* 倒计时样式 */
+#countdown-timer {
+    position: absolute;
+    top: 100px;
+    right: 10px;
+    background-color: #f39c12;
+    color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 18px;
+    z-index: 1000;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* 添加动画角色样式 */
+.animated-character {
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    pointer-events: none;
+    z-index: 1000;
+    transition: transform 0.1s ease-out;
+}
+
+.animated-character img {
+    width: 100%;
+    height: 100%;
+}
+
+/* 奖励动画效果 */
+.reward-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1001;
+}
+
+.floating-reward {
+    position: absolute;
+    font-size: 40px;
+    animation: floatUp 3s ease-out forwards;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* 故事转场动画 */
+.story-transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.transition-content {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    position: relative;
+    animation: poof 0.5s ease-out;
+}
+
+.transition-text {
+    font-size: 24px;
+    color: #2c3e50;
+    margin: 20px 0;
+}
+
+.sparkles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.sparkles::before,
+.sparkles::after {
+    content: "✨";
+    position: absolute;
+    animation: sparkle 1s infinite;
+}
+
+@keyframes sparkle {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+}
+
+@keyframes poof {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* 新增互动装饰效果 */
+.floating-decor {
+    position: fixed;
+    pointer-events: none;
+    z-index: 2000;
+    animation: floatUp 5s linear infinite;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-10vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* 多彩小挂件样式 */
+.decor-circle {
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(circle, #ff6b6b, #ff4757);
+    border-radius: 50%;
+}
+
+.decor-star {
+    font-size: 30px;
+    color: #f1c40f;
+}
+
+/* 页面加载后随机生成几个互动装饰 */
+@keyframes decorAppear {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+/* 可在页面各角落显示的闪耀元素 */
+.shiny-badge {
+    position: fixed;
+    font-size: 40px;
+    animation: decorAppear 3s ease-in-out infinite;
+    z-index: 1500;
+}
+
+.shiny-badge.top-left {
+    top: 20px;
+    left: 20px;
+    color: #e67e22;
+}
+
+.shiny-badge.top-right {
+    top: 20px;
+    right: 20px;
+    color: #9b59b6;
+}
+
+.shiny-badge.bottom-left {
+    bottom: 20px;
+    left: 20px;
+    color: #1abc9c;
+}
+
+.shiny-badge.bottom-right {
+    bottom: 20px;
+    right: 20px;
+    color: #e74c3c;
+}
+
+/* 新增：为PK模式左右板块分别设置不同的渐变背景 */
+#player1 {
+    background: linear-gradient(135deg, #ffecd2, #fcb69f);
+    /* 可增加内边距提高视觉效果 */
+    padding: 20px;
+}
+
+#player2 {
+    background: linear-gradient(135deg, #d4fc79, #96e6a1);
+    padding: 20px;
+}
+
+/* 新增：PK动画效果，当比赛开始时在中间闪现“PK”字样 */
+.pk-animation {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 80px;
+    color: #e74c3c;
+    font-weight: bold;
+    animation: pkFlash 1s ease-out;
+    z-index: 1500;
+}
+
+@keyframes pkFlash {
+    0% {
+        opacity: 0;
+        transform: scale(0.5) translate(-50%, -50%);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2) translate(-50%, -50%);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1) translate(-50%, -50%);
+    }
+}
+
+/* 新增：童趣互动效果，例如浮动气泡 */
+.bubble {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    animation: floatBubble 8s infinite;
+}
+
+@keyframes floatBubble {
+    0% {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-10vh) scale(1);
+        opacity: 0;
+    }
+}
+
+/* 新增：飞舞的蝴蝶效果 */
+.butterfly {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    background-image: url('assets/images/butterfly.png');
+    /* 请确保该图片存在 */
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: flyButterfly 8s linear infinite;
+    pointer-events: none;
+    z-index: 2000;
+}
+
+@keyframes flyButterfly {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translate(200px, -150px) rotate(360deg);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translate(0, 0) rotate(720deg);
+        opacity: 1;
+    }
+}
+
+/* 新增：鼠标点击后出现的彩色星星效果 */
+.click-star {
+    position: absolute;
+    font-size: 24px;
+    pointer-events: none;
+    animation: starPop 0.8s ease-out forwards;
+    z-index: 3000;
+}
+
+@keyframes starPop {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+/* 新增：糖果图标飞舞效果 */
+.candy {
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    background-image: url('assets/images/candy.png');
+    /* 请确保该图片存在 */
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: floatCandy 10s linear infinite;
+    pointer-events: none;
+    z-index: 2000;
+}
+
+@keyframes floatCandy {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-10vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* 新增：欢迎界面样式 */
+#welcome-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ffecd2, #fcb69f);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 4000;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.welcome-content {
+    text-align: center;
+    color: #2c3e50;
+    animation: popUp 1s ease-out;
+}
+
+/* 更新欢迎界面图片，尺寸翻倍 */
+.welcome-content img {
+    width: 240px;
+    /* 由 120px 增大一倍 */
+    margin-bottom: 20px;
+    /* 去掉动画 */
+    animation: none;
+    opacity: 0;
+    animation: popUp 1s ease-out forwards;
+}
+
+@keyframes popUp {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* 新增：侧边装饰样式 */
+.side-decor {
+    position: relative;
+    /* 改为相对定位 */
+    display: inline-block;
+    z-index: 2000;
+    margin: 10px;
+    /* 添加间距以避免抢占其他模块位置 */
+}
+
+.side-decor img {
+    width: 100px;
+    /* 固定宽度 */
+    height: auto;
+    /* 高度自适应 */
+    display: block;
+}
+
+/* 右侧娃娃：正常尺寸，位于屏幕右侧中部 */
+.right-decor {
+    right: -20px;
+    top: 20%;
+}
+
+/* 调整左侧装饰位置：下移至中下方 */
+.left-decor {
+    left: 0;
+    top: 40%;
+}
+
+/* 更新侧边装饰：左侧和右侧图片尺寸放大 */
+.left-decor img {
+    width: 170px;
+    /* 由60px变为120px */
+    height: auto;
+    display: block;
+    margin: 10px;
+}
+
+.right-decor img {
+    width: 200px;
+    /* 由80px变为160px */
+    height: auto;
+    display: block;
+    margin: 10px;
+}
+
+/* 更新 cute 系列图片的位置 */
+.side-decor.right-decor {
+    position: absolute;
+    right: 0;
+    top: 30%;
+    transform: translateY(-50%);
+}
+
+.side-decor.left-decor {
+    position: absolute;
+    left: 0;
+    top: 60%;
+    transform: translateY(-50%);
+}
+
+.extra-decor.top-decor {
+    position: absolute;
+}
+
+.extra-decor.bottom-decor {
+    position: absolute;
+    right: 0;
+    /* 改为右边界 */
+    bottom: 5%;
+    /* 靠下很多 */
+    transform: translateX(-10%);
+}
+
+/* 更新侧边装饰：左侧和右侧图片尺寸放大 */
+.extra-decor img {
+    height: auto;
+    display: block;
+    margin: 10px;
+}
+
+/* 新增：PK附加模块 */
+#pk-extra {
+    margin-top: 20px;
+    padding: 15px;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out;
+}
+
+#pk-extra h3 {
+    margin: 0 0 10px;
+    color: #c0392b;
+}
+
+#pk-extra p {
+    margin: 0;
+    color: #2c3e50;
+}
+
+/* 新增：欢迎按钮 */
+#welcome-screen button {
+    margin-top: 20px;
+    padding: 12px 24px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+#welcome-screen button:hover {
+    transform: scale(1.1);
+}
+
+/* 新增：简单滑入动画 */
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* 新增额外装饰样式 */
+.extra-decor {
+    position: relative;
+    /* 改为相对定位 */
+    display: inline-block;
+    z-index: 1900;
+    margin: 10px;
+    /* 添加间距 */
+}
+
+.extra-decor img {
+    height: auto;
+    /* 高度自适应 */
+    display: block;
+}
+
+/* 更新额外装饰元素尺寸翻倍 */
+.extra-decor.top-decor {
+    top: 2%;
+    left: 1%;
+    width: 250px;
+
+}
+
+.extra-decor.bottom-decor {
+    bottom: 0.5%;
+    right: 5%;
+    width: 300px;
+
+}
+
+.extra-decor img {
+    width: 100%;
+    height: auto;
+}
+
+/* 更新页脚内部布局：左右分布 */
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+#story-description {
+    font-size: 18px;
+    color: #34495e;
+    /* 深灰色 */
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+#narrative {
+    font-size: 16px;
+    color: #2c3e50;
+    /* 更深的灰色 */
+    font-style: italic;
+    line-height: 1.6;
+    margin-top: 10px;
+}
+
+#story-selection {
+    display: none;
+    background: linear-gradient(135deg, #ffecd2, #fcb69f);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in-out;
+    text-align: center;
+}
+
+#story-selection h1 {
+    font-size: 36px;
+    color: #e74c3c;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.story-button {
+    display: inline-block;
+    width: 120px;
+    /* 固定宽度 */
+    height: 60px;
+    /* 固定高度 */
+    line-height: 60px;
+    /* 垂直居中 */
+    text-align: center;
+    /* 水平居中 */
+    margin: 10px;
+    padding: 0;
+    /* 移除内边距 */
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.story-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(45deg, #fcb69f, #ffecd2);
+}
+
+.story-button:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* 跳过按钮样式 */
+#skip-button {
+    padding: 12px 24px;
+    background: linear-gradient(45deg, #e74c3c, #f39c12);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-left: 10px;
+}
+
+#skip-button:hover {
+    background-color: #e67e22;
+    transform: scale(1.1);
+}

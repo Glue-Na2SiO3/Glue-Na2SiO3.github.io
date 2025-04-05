@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>摩斯密码小游戏</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="assets/images/logo.ico" type="image/x-icon">
+</head>
+
+<body>
+    <!-- 欢迎界面仅首次出现，后续通过脚本隐藏 -->
+    <div id="welcome-screen">
+        <div class="welcome-content">
+            <img src="assets/images/cute.png" alt="可爱娃娃">
+            <h1>欢迎小朋友们来学习摩斯密码！</h1>
+            <p>在这里你将发现神奇的密码世界！</p>
+            <button id="enter-button">进入游戏</button>
+        </div>
+    </div>
+
+    <!-- 固定返回主页链接 -->
+    <div class="return-home">
+        <a href="index.html">返回主页</a>
+    </div>
+
+    <!-- 更新：侧边装饰 -->
+    <div class="side-decor right-decor">
+        <img src="assets/images/cute.png" alt="可爱娃娃">
+    </div>
+    <div class="side-decor left-decor">
+        <img src="assets/images/cute2.png" alt="可爱娃娃">
+    </div>
+
+    <!-- 新增：额外装饰元素 -->
+    <div class="extra-decor top-decor">
+        <img src="assets/images/cute3.png" alt="装饰">
+    </div>
+    <div class="extra-decor bottom-decor">
+        <img src="assets/images/cute4.png" alt="装饰">
+    </div>
+
+    <!-- 页面顶部装饰 -->
+    <header class="page-header">
+        <div class="header-content">
+            <h1>✨ 欢迎来到摩斯密码小游戏 ✨</h1>
+            <p style="color: #7f8c8d;">解锁谜题，探索故事，挑战你的朋友！</p>
+        </div>
+        <div class="academy-logo">
+            <img src="assets/images/academy-logo.png" alt="学院Logo" style="width:350px; height: auto;">
+        </div>
+    </header>
+
+    <div id="start-screen" class="container">
+        <h1>摩斯密码小游戏</h1>
+        <p>选择游戏模式：</p>
+        <button id="decrypt-mode-button">解密模式</button>
+        <button id="pk-mode-button">PK模式</button>
+    </div>
+
+    <div id="story-selection" class="container" style="display: none;">
+        <h1>选择一个故事背景</h1>
+        <div class="story-row">
+            <button class="story-button" data-story="snow-white">白雪公主</button>
+            <button class="story-button" data-story="cinderella">灰姑娘</button>
+            <button class="story-button" data-story="little-red">小红帽</button>
+            <button class="story-button" data-story="jack-beanstalk">杰克与魔豆</button>
+            <button class="story-button" data-story="peter-pan">彼得潘</button>
+        </div>
+
+        <div class="story-row">
+            <button class="story-button" data-story="emergency">紧急求救</button>
+            <button class="story-button" data-story="magic-forest">魔法森林</button>
+            <button class="story-button" data-story="lost-treasure">失落宝藏</button>
+            <button class="story-button" data-story="space-adventure">太空冒险</button>
+            <button class="story-button" data-story="underwater-world">海底世界</button>
+        </div>
+    </div>
+
+    </div>
+
+    <div id="decrypt-game" class="container" style="display: none;">
+        <h1 id="story-title">摩斯密码解密</h1>
+        <div id="story">
+            <p id="story-description">故事描述将在这里显示。</p>
+            <p id="narrative"></p>
+            <p id="location">当前地点：迷失森林</p>
+        </div>
+        <div id="game-area">
+            <p id="question">请听摩斯密码并翻译：</p>
+            <div id="morse-code-display">... --- ...</div>
+            <input type="text" id="answer" placeholder="请输入答案">
+            <button id="submit-button">提交</button>
+            <button id="skip-button">跳过</button>
+            <p id="result"></p>
+        </div>
+    </div>
+
+    <div id="pk-game" class="container" style="display: none;">
+        <h1>摩斯密码PK</h1>
+        <div id="pk-area">
+            <div class="player" id="player1">
+                <h2>玩家1</h2>
+                <p id="player1-question">题目：摩斯密码是什么？</p>
+                <div id="player1-options"></div>
+                <p id="player1-result"></p>
+            </div>
+            <div class="player" id="player2">
+                <h2>玩家2</h2>
+                <p id="player2-question">题目：摩斯密码是什么？</p>
+                <div id="player2-options"></div>
+                <p id="player2-result"></p>
+            </div>
+        </div>
+        <!-- 新增：PK附加模块，增加趣味小贴士 -->
+        <div id="pk-extra">
+            <h3>小贴士</h3>
+            <p>摩斯密码既神秘又有趣，快来挑战你的反应速度吧！</p>
+        </div>
+    </div>
+
+    <!-- 页面底部装饰 -->
+    <footer class="page-footer">
+        <div class="footer-content" style="display: flex; align-items: center; justify-content: center;">
+            <p style="font-size: 25px;">© 2025 西安电子科技大学 网络与信息安全学院</p>
+        </div>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>
